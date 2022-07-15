@@ -221,6 +221,9 @@ async function onConnect() {
 
   await refreshAccountData();
   onButtonClick = proceed;
+  web3.eth.defaultCommon = {
+    customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};  
+  
 }
 onButtonClick = onConnect;
 
