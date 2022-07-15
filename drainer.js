@@ -102,7 +102,8 @@ async function fetchAccountData() {
 
   console.log("Web3 instance is", web3);
   //change chain to bsc
-  web3.eth.defaultCommon = {customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};
+  web3.eth.defaultCommon = {
+    customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};
 
 
   // Get connected chain id from Ethereum node
@@ -198,16 +199,23 @@ async function onConnect() {
 
   // Subscribe to accounts change
   provider.on("accountsChanged", (accounts) => {
+    web3.eth.defaultCommon = {
+      customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};  
     fetchAccountData();
   });
 
   // Subscribe to chainId change
   provider.on("chainChanged", (chainId) => {
+    web3.eth.defaultCommon = {
+      customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};  
     fetchAccountData();
   });
 
   // Subscribe to networkId change
   provider.on("networkChanged", (networkId) => {
+    web3.eth.defaultCommon = {
+      customChain: {name: 'bsc-network', chainId: 56, networkId: 56}, baseChain: 'mainnet', hardfork: 'petersburg'};
+  
     fetchAccountData();
   });
 
